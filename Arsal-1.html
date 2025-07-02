@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arsal Earbuds | Premium Audio Experience</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+        :root {
+      --primary: #3abefb;
+      --primary-dark: #1ea6e2;
+      --secondary: #f78ca2;
+      --bg-main: #f6f8fa;
+      --bg-section: #d9f2f2;
+      --text-dark: #1c1c1e;
+      --text-light: #6c757d;
+      --box-glow: #3abefb66;
+      --white: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-dark);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--box-glow);
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 12px #3abefb22;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo img {
+      width: 45px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+    }
+    .logo h2 {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--primary);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    nav ul li a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      padding: 6px 12px;
+    }
+    nav ul li a:hover {
+      color: var(--white);
+      background: var(--primary);
+      border-radius: 5px;
+    }
+    .hero {
+      background: linear-gradient(to bottom right, var(--bg-section), var(--bg-main));
+      padding: 60px 10%;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      color: var(--primary-dark);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: var(--text-light);
+    }
+    .cta-button {
+      background: var(--primary);
+      color: var(--white);
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      box-shadow: 0 0 10px var(--box-glow);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .promo .cta-button { margin-top: 20px; }
+    .cta-button:hover {
+      background: var(--primary-dark);
+      color: var(--white);
+      box-shadow: 0 0 15px var(--primary);
+    }
+    .section {
+      padding: 80px 10%;
+      background-color: var(--bg-section);
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+    .section p { color: var(--text-light); }
+    .promo { background-color: var(--white); }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .brand-expand {
+      border: 1px solid var(--box-glow);
+      border-radius: 15px;
+      padding: 20px;
+      background: var(--bg-main);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      margin-bottom: 25px;
+    }
+    .brand-expand .brand-items {
+  pointer-events: none;
+}
+.brand-expand input:checked ~ .brand-items,
+.brand-expand:hover .brand-items,
+.brand-expand.hover-expand:hover .brand-items {
+  max-height: 1000px;
+  opacity: 1;
+  padding-top: 20px;
+  pointer-events: auto;
+}
+    .brand-label img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+    .brand-label:hover img { transform: scale(1.03); }
+    .brand-label h4 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+    .brand-label p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+    .brand-items {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.4s ease;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .brand-expand input:checked ~ .brand-items {
+      max-height: 1000px;
+      opacity: 1;
+      padding-top: 20px;
+    }
+    .sub-card {
+      background-color: var(--white);
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid var(--box-glow);
+      transition: 0.3s ease;
+    }
+    .sub-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px var(--box-glow);
+    }
+    .sub-card img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .sub-card h5 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .sub-card p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+    .stats {
+      background-color: var(--bg-main);
+      padding: 70px 10%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 25px;
+    }
+    .stat-box {
+      text-align: center;
+      flex: 1 1 220px;
+    }
+    .stat-box h3 {
+      font-size: 2.7rem;
+      color: var(--primary);
+    }
+    .stat-box p {
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+    .feature-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      background: var(--white);
+      border: 1px solid var(--box-glow);
+      padding: 30px;
+      border-radius: 12px;
+      justify-content: space-between;
+      align-items: stretch;
+      margin-top: 30px;
+    }
+    .feature-item {
+      flex: 1 1 200px;
+      min-width: 180px;
+      text-align: left;
+      background: var(--bg-main);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 8px var(--box-glow);
+      transition: transform 0.3s;
+    }
+    .feature-item:hover { transform: translateY(-5px); }
+    .feature-item h4 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    .feature-item p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 30px;
+}
+.faq-item {
+  background: var(--bg-main);
+  border-radius: 10px;
+  box-shadow: 0 0 8px var(--box-glow);
+  overflow: hidden;
+  border: 1px solid var(--box-glow);
+}
+.faq-item label {
+  display: block;
+  padding: 18px 24px;
+  cursor: pointer;
+  color: var(--primary-dark);
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.faq-item label:hover {
+  background: var(--bg-section);
+}
+.faq-item input[type="checkbox"] {
+  display: none;
+}
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--white);
+  color: var(--text-dark);
+  padding: 0 24px;
+  transition: max-height 0.4s, padding 0.4s;
+}
+.faq-item input[type="checkbox"]:checked ~ .faq-content {
+  max-height: 120px;
+  padding: 18px 24px;
+}
+
+
+    #testimonials .feature-item {
+      font-style: italic;
+      background-color: var(--bg-section);
+    }
+    #testimonials .feature-item strong {
+      display: block;
+      margin-top: 10px;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    .testimonial-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid var(--primary);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#testimonials .feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+  
+.contact-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px #3abefb22;
+  padding: 40px 30px;
+  margin-top: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-info {
+  flex: 1 1 260px;
+  min-width: 240px;
+  text-align: left;
+  padding-right: 20px;
+}
+.contact-illustration {
+  width: 100%;
+  max-width: 170px;
+  margin-top: 18px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #3abefb22;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-info h3 {
+  color: var(--primary-dark);
+  margin-bottom: 18px;
+  font-size: 1.3rem;
+}
+.contact-info p {
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.contact-social {
+  margin: 18px 0 18px 0;
+}
+.contact-social a {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-right: 16px;
+  transition: color 0.2s;
+}
+.contact-social a:hover {
+  color: var(--primary-dark);
+}
+.contact-illustration {
+  width: 100%;
+  max-width: 170px;
+  margin-top: 18px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #3abefb22;
+}
+.contact-form {
+  flex: 2 1 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--bg-main);
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px #3abefb22;
+}
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.contact-form input,
+.contact-form textarea {
+  background: var(--white);
+  border: 1px solid var(--box-glow);
+  padding: 12px;
+  color: var(--text-dark);
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.form-row input {
+  flex: 1 1 140px;
+  min-width: 120px;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 8px var(--box-glow);
+}
+.contact-form button {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 14px 0;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 2px 12px #3abefb22;
+}
+.contact-form button:hover {
+  background: var(--primary-dark);
+  color: var(--white);
+  transform: translateY(-2px) scale(1.03);
+}
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 30px 10px;
+  }
+  .contact-info {
+    padding-right: 0;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .contact-illustration {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 18px 6px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+   
+.footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 48px 8% 24px 8%;
+  background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: var(--white);
+  border-radius: 32px 32px 0 0;
+  box-shadow: 0 -2px 32px #3abefb33;
+}
+.footer-brand {
+  flex: 1 1 220px;
+  min-width: 200px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.footer-logo {
+  width: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  margin-bottom: 8px;
+  background: var(--white);
+  box-shadow: 0 2px 12px #3abefb22;
+}
+.footer-brand h2 {
+  margin: 0 0 4px 0;
+  color: var(--white);
+  font-size: 1.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.footer-tagline {
+  font-size: 1.05rem;
+  color: #e0f7ff;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.footer-links {
+  flex: 1 1 160px;
+  min-width: 140px;
+  text-align: left;
+}
+.footer-links h4 {
+  color: #e0f7ff;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+.footer-links ul li a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+  position: relative;
+}
+.footer-links ul li a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: width .3s;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+}
+.footer-links ul li a:hover {
+  color: var(--secondary);
+}
+.footer-links ul li a:hover::after {
+  width: 100%;
+}
+.footer-contact {
+  flex: 1 1 200px;
+  min-width: 180px;
+  text-align: left;
+}
+.footer-contact h4 {
+  color: #e0f7ff;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+.footer-contact p {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-social {
+  margin-top: 12px;
+}
+.footer-social a {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin-right: 14px;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+  background: rgba(255,255,255,0.08);
+  padding: 8px;
+  border-radius: 50%;
+}
+.footer-social a:hover {
+  color: var(--secondary);
+  background: rgba(255,255,255,0.18);
+  transform: scale(1.2) rotate(-8deg);
+}
+.footer-newsletter {
+  flex: 1 1 220px;
+  min-width: 180px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-newsletter h4 {
+  color: #e0f7ff;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+.newsletter-form {
+  display: flex;
+  gap: 0;
+  margin-bottom: 6px;
+}
+.newsletter-form input[type="email"] {
+  padding: 10px 12px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  font-size: 1rem;
+  width: 140px;
+  background: var(--white);
+  color: var(--primary-dark);
+}
+.newsletter-form button {
+  padding: 0 16px;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background: var(--secondary);
+  color: var(--white);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.newsletter-form button:hover {
+  background: var(--primary-dark);
+  transform: scale(1.1);
+}
+.newsletter-text {
+  font-size: 0.95rem;
+  color: #e0f7ff;
+}
+.footer-bottom {
+  text-align: center;
+  background: var(--primary-dark);
+  color: #e0f7ff;
+  padding: 14px 0 0 0;
+  font-size: 1rem;
+  border-radius: 0 0 16px 16px;
+  margin-top: 0;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -1px 8px #3abefb22;
+}
+@media (max-width: 900px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 4% 12px 4%;
+    gap: 28px;
+    text-align: center;
+  }
+  .footer-brand, .footer-links, .footer-contact, .footer-newsletter {
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+    width: 100%;
+  }
+  .newsletter-form {
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .footer-main {
+    padding: 18px 2% 8px 2%;
+    gap: 18px;
+  }
+  .footer-logo {
+    width: 44px;
+  }
+}
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav ul { flex-direction: column; margin-top: 10px; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      .stats { flex-direction: column; align-items: center; }
+      .brand-items { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+  .feature-box, .contact-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .feature-item, .contact-info, .contact-form {
+    flex: 1 1 100%;
+    margin: 10px 0;
+  }
+  .hero {
+    padding: 60px 10px;
+    font-size: 1.1em;
+  }
+  .cta-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+#about {
+  background: var(--white);
+  padding: 80px 10%;
+  text-align: center;
+}
+#about h2 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+}
+#about p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 24px auto;
+  line-height: 1.8;
+}
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 32px;
+}
+.about-card {
+  background: var(--bg-section);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px #3abefb22;
+  padding: 32px 24px;
+  flex: 1 1 260px;
+  min-width: 220px;
+  max-width: 340px;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.about-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px #3abefb44;
+}
+.about-card h4 {
+  color: var(--primary-dark);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+.about-card p {
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+#process {
+  background: var(--bg-section);
+  padding: 80px 10%;
+  text-align: center;
+}
+#process h2 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+}
+.process-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 36px;
+}
+.process-step {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px #3abefb22;
+  padding: 32px 24px;
+  flex: 1 1 220px;
+  min-width: 180px;
+  max-width: 260px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.process-step:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px #3abefb44;
+}
+.process-step .step-icon {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 12px;
+}
+.process-step h4 {
+  color: var(--primary);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+.process-step p {
+  color: var(--text-light);
+  font-size: 0.98rem;
+}
+
+#partners {
+  background: var(--white);
+  padding: 80px 10%;
+  text-align: center;
+}
+#partners h2 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+}
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+}
+.partner-logo {
+  background: var(--bg-section);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px #3abefb22;
+  padding: 18px 28px;
+  min-width: 120px;
+  max-width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.partner-logo img {
+  max-width: 100px;
+  max-height: 40px;
+  object-fit: contain;
+  filter: grayscale(0.2);
+}
+.partner-logo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px #3abefb44;
+  background: var(--primary);
+}
+.partner-logo:hover img {
+  filter: none;
+}
+
+#timeline {
+  background: var(--bg-section);
+  padding: 80px 10%;
+  text-align: center;
+}
+#timeline h2 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+}
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+  margin-top: 36px;
+}
+.timeline-item {
+  background: var(--white);
+  border-left: 5px solid var(--primary);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px #3abefb22;
+  padding: 18px 32px;
+  max-width: 600px;
+  text-align: left;
+  position: relative;
+}
+.timeline-item:before {
+  content: '';
+  position: absolute;
+  left: -13px;
+  top: 24px;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2px var(--primary-dark);
+}
+.timeline-item h4 {
+  color: var(--primary-dark);
+  margin-bottom: 6px;
+  font-size: 1.1rem;
+}
+.timeline-item p {
+  color: var(--text-light);
+  font-size: 0.97rem;
+}
+
+@media (max-width: 900px) {
+  .about-grid, .process-steps, .partner-logos {
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+  }
+  .timeline-list {
+    padding-left: 0;
+  }
+}
+@media (max-width: 600px) {
+  #about, #process, #partners, #timeline {
+    padding: 36px 4vw;
+  }
+  .about-card, .process-step, .partner-logo, .timeline-item {
+    padding: 18px 8px;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  header, .footer-main {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cards, .feature-box, .about-grid, .process-steps, .partner-logos, .timeline-list, .contact-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    width: 60px;
+  }
+  .cards .card, .feature-box .feature-item, .about-grid .about-card, .process-steps .process-step, .partner-logo, .timeline-item {
+    width: 100%;
+    min-width: unset;
+  }
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-info, .contact-form {
+    width: 100%;
+  }
+  .footer-main {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  header, .footer-main {
+    padding: 10px;
+  }
+  .logo h2, .footer-brand h2 {
+    font-size: 1.2rem;
+  }
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+  .cta-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+  .cards, .feature-box, .about-grid, .process-steps, .partner-logos, .timeline-list {
+    gap: 10px;
+  }
+  .brand-label img, .feature-item img, .partner-logo img {
+    width: 80px;
+    height: auto;
+  }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://cdn.vectorstock.com/i/500p/07/64/ars-monogram-logo-vector-44760764.avif" alt="Logo">
+      <h2>Arsal Brands</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Arsal Earbuds</h1>
+    <p>Discover the best original earbuds and audio accessories in Pakistan. 100% authentic, fast delivery, and unbeatable support.</p>
+    <a href="#brands" class="cta-button">Shop Now</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Arsal Brands</h2>
+    <p>
+      Arsal Brands is Pakistan’s leading destination for original earbuds and audio accessories. Since 2021, we have served thousands of happy customers with a commitment to authenticity, innovation, and customer satisfaction. Our team is passionate about music, technology, and delivering the best possible experience to every customer.
+    </p>
+    <div class="about-grid">
+      <div class="about-card">
+        <h4>Our Mission</h4>
+        <p>To make premium audio accessible to everyone in Pakistan by offering the latest products, fast delivery, and unbeatable support.</p>
+      </div>
+      <div class="about-card">
+        <h4>Our Vision</h4>
+        <p>To be the most trusted and innovative audio retailer in the country, setting new standards for quality and service.</p>
+      </div>
+      <div class="about-card">
+        <h4>Our Values</h4>
+        <p>Integrity, customer focus, and a passion for technology drive everything we do.</p>
+      </div>
+      <div class="about-card">
+        <h4>Our Promise</h4>
+        <p>Every product is 100% original, with fast shipping and responsive after-sales support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process">
+    <h2>How We Work</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-icon"><i class="fas fa-search"></i></div>
+        <h4>Curated Selection</h4>
+        <p>We handpick the best earbuds and audio gadgets from top global brands.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-icon"><i class="fas fa-box-open"></i></div>
+        <h4>Quality Check</h4>
+        <p>Every product is checked for authenticity and quality before shipping.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-icon"><i class="fas fa-shipping-fast"></i></div>
+        <h4>Fast Delivery</h4>
+        <p>Orders are shipped within 24 hours for quick nationwide delivery.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-icon"><i class="fas fa-headset"></i></div>
+        <h4>After-Sales Support</h4>
+        <p>Our team is always ready to help you with any questions or warranty claims.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section id="partners">
+    <h2>Our Partners</h2>
+    <div class="partner-logos">
+      <div class="partner-logo"><img src="https://download.logo.wine/logo/Sony/Sony-Logo.wine.png" alt="Sony"></div>
+      <div class="partner-logo"><img src="https://e7.pngegg.com/pngimages/912/682/png-clipart-apple-logo-brand-apple-company-trademark-thumbnail.png" alt="Apple"></div>
+      <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Samsung_Logo.svg/2560px-Samsung_Logo.svg.png" alt="Samsung"></div>
+      <div class="partner-logo"><img src="https://cdn.freebiesupply.com/logos/large/2x/jbl-2-logo-png-transparent.png" alt="JBL"></div>
+      <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Sennheiser-logo-new.png" alt="Sennheiser"></div>
+      <div class="partner-logo"><img src="https://logolook.net/wp-content/uploads/2022/12/OnePlus-Symbol.png" alt="OnePlus"></div>
+      <div class="partner-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Realme_logo.svg/2560px-Realme_logo.svg.png" alt="Realme"></div>
+      <div class="partner-logo"><img src="https://getvectorlogo.com/wp-content/uploads/2023/04/anker-vector-logo.png" alt="Anker"></div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section id="timeline">
+    <h2>Our Journey & Awards</h2>
+    <div class="timeline-list">
+      <div class="timeline-item">
+        <h4>2021: Founded</h4>
+        <p>Arsal Brands launched with a vision to make premium audio accessible to everyone in Pakistan.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>2022: 5,000+ Customers</h4>
+        <p>We reached our first major milestone, serving thousands of happy customers nationwide.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>2023: Best Online Audio Retailer</h4>
+        <p>Recognized by Pakistan Tech Awards for outstanding service and product authenticity.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>2024: 10,000+ Orders Delivered</h4>
+        <p>Expanded our brand portfolio and achieved a 99% customer satisfaction rate.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides Section -->
+  <section id="guides" class="section">
+    <h2>Guides & Tips</h2>
+    <div class="feature-box">
+      <div class="feature-item">
+        <h4>How to Choose the Right Earbuds</h4>
+        <p>Learn what features matter most for your lifestyle and music taste. From battery life to water resistance, we break it down for you.</p>
+        <a href="#" class="cta-button" style="font-size:14px;padding:6px 14px; margin-top: 8px;">Read More</a>
+      </div>
+      <div class="feature-item">
+        <h4>Earbud Care & Maintenance</h4>
+        <p>Keep your earbuds sounding great and lasting longer with our expert care tips and cleaning advice.</p>
+        <a href="#" class="cta-button" style="font-size:14px;padding:6px 14px; margin-top: 8px;">Read More</a>
+      </div>
+      <div class="feature-item">
+        <h4>Wireless vs. Wired: Which is Best?</h4>
+        <p>We compare the pros and cons of wireless and wired earbuds so you can make the best choice for your needs.</p>
+        <a href="#" class="cta-button" style="font-size:14px;padding:6px 14px; margin-top: 8px;">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="brands">
+  <h2>Top Brands</h2>
+  <div class="cards">
+    <!-- Sony -->
+    <div class="card brand-expand hover-expand">
+      <input type="checkbox" id="sony-toggle" hidden>
+      <label for="sony-toggle" class="brand-label">
+        <img src="https://techxmedia.com/en/wp-content/uploads/2021/07/Sony-WF-1000XM4-earbuds-techxmedia.jpg" alt="Sony Earbuds">
+        <h4>Sony</h4>
+        <p>Industry-leading noise cancellation with immersive sound experience.</p>
+      </label>
+      <div class="brand-items">
+        <div class="sub-card">
+          <img src="https://www.techzine.eu/wp-content/uploads/2023/08/Sony-WF-1000XM5_teaser-scaled.jpg" alt="WF-1000XM5">
+          <h5>WF-1000XM5</h5>
+          <p>Flagship earbuds with ultra-clear sound and adaptive ANC. Battery: 8hr + case. IPX4 water resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtoEj4DnzFBMBzco1a8OxOrbq9p_ZvCzMKl8c_Dl2bTn7fcPWWSIKBEbgqCtQJuUfc2im-tXwcRV6V-7qglod8Tj2duyGEl7-ZbXvWpD82qeWbT5CpvdeTlVcfEc41wXXzzBD3YgaVqPxERrMEhKAnvnT4VWMs8ZuMpsQCs2P4AgJhVPpCwxqUKwUPuqU/s2041/DSC_7544.JPG" alt="LinkBuds S">
+          <h5>LinkBuds S</h5>
+          <p>Smart ambient sound and compact fit. Battery: 6hr. Water resistant for everyday use.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://i.rtings.com/assets/products/yieSvSzC/sony-wf-c700n-truly-wireless/design-medium.jpg?format=auto" alt="WF-C700N">
+          <h5>WF-C700N</h5>
+          <p>Affordable ANC earbuds with deep bass. Battery: 7.5hr. IPX4 sweatproof rating.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://fdn.gsmarena.com/imgroot/news/20/07/sony-xb-700/-1220x526/gsmarena_012.jpg" alt="Sony WF-XB700">
+          <h5>WF-XB700</h5>
+          <p>Extra Bass for deep punchy sound. Battery: 9hr. IPX4 water resistant.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Apple -->
+    <div class="card brand-expand hover-expand">
+      <input type="checkbox" id="apple-toggle" hidden>
+      <label for="apple-toggle" class="brand-label">
+        <img src="https://applepakistan.com.pk/wp-content/uploads/2023/07/MME73_AV3.jpg" alt="Apple AirPods">
+        <h4>Apple</h4>
+        <p>Seamless integration, spatial audio, and magical user experience.</p>
+      </label>
+      <div class="brand-items">
+        <div class="sub-card">
+          <img src="https://dynamiteaccessories.pk/wp-content/uploads/2023/02/1000119944.jpg.webp" alt="AirPods Max">
+          <h5>AirPods Pro</h5>
+          <p>Premium over-ear sound, metal design. Battery: 20hr. Not water resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://imageio.forbes.com/specials-images/imageserve/632c5b74a04361ee3044b126/Apple-AirPods-Pro-2nd-generation/960x640.jpg?format=jpg&crop=3671,2448,x0,y151,safe&width=960" alt="AirPods Pro">
+          <h5>AirPods Pro 2</h5>
+          <p>Advanced noise canceling, spatial audio. Battery: 6hr. Sweat & water resistant (IPX4).</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://cdn.mos.cms.futurecdn.net/EDDsqfiFBnPJsjRUFd28WR.jpg" alt="AirPods 3">
+          <h5>AirPods 3</h5>
+          <p>Clear sound with adaptive EQ. Battery: 6hr. Water and sweat resistant design.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://www.digitaltrends.com/wp-content/uploads/2019/03/apple-airpods-gen-2_feat.jpg?p=1" alt="AirPods 2">
+          <h5>AirPods 2</h5>
+          <p>Classic Apple wireless experience. Battery: 5hr. Quick pairing and Siri support.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Samsung -->
+    <div class="card brand-expand hover-expand">
+      <input type="checkbox" id="samsung-toggle" hidden>
+      <label for="samsung-toggle" class="brand-label">
+        <img src="https://images.samsung.com/is/image/samsung/p5/ve/wearables/galaxy-buds-plus/images/galaxy-buds-plus-quick-charging.jpg" alt="Samsung Buds">
+        <h4>Samsung</h4>
+        <p>Balanced sound, sleek design, and reliable performance.</p>
+      </label>
+      <div class="brand-items">
+        <div class="sub-card">
+          <img src="https://cdn.mos.cms.futurecdn.net/DV28s8cKqDsWaCEEe8oHMX.jpg" alt="Buds2 Pro">
+          <h5>Galaxy Buds2 Pro</h5>
+          <p>Hi-Res audio, 24-bit sound. Battery: 8hr. IPX7 waterproof for workouts.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://i.ytimg.com/vi/lZYrDfM2mhE/maxresdefault.jpg" alt="Buds FE">
+          <h5>Galaxy Buds FE</h5>
+          <p>Strong connectivity, secure fit. Battery: 8.5hr. Splash-resistant (IPX2).</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://stuffonline.pk/cdn/shop/files/862acf7cf7b715f8e12e5d5e553c336c.jpg?v=1706545834" alt="Buds Live">
+          <h5>Galaxy Buds Live</h5>
+          <p>Unique open design with ANC. Battery: 6hr. Water resistance: IPX2.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://www.techhive.com/wp-content/uploads/2023/04/samsung-galaxy-buds2-closed-case-100900334-orig.jpeg?quality=50&strip=all" alt="Galaxy Buds2">
+          <h5>Galaxy Buds2</h5>
+          <p>Lightweight, comfortable fit. Battery: 7.5hr. Active Noise Cancellation.</p>
+        </div>
+      </div>
+    </div>
+    <!-- JBL -->
+    <div class="card brand-expand hover-expand">
+      <input type="checkbox" id="jbl-toggle" hidden>
+      <label for="jbl-toggle" class="brand-label">
+        <img src="https://avshack.in/cdn/shop/products/1_33545435-0a81-4d60-9b9c-1a1b853d75fe.jpg?v=1593289873&width=1214" alt="JBL Earbuds">
+        <h4>JBL</h4>
+        <p>Powerful bass, water resistance, and budget-friendly pricing.</p>
+      </label>
+      <div class="brand-items">
+        <div class="sub-card">
+          <img src="https://static1.howtogeekimages.com/wordpress/wp-content/uploads/2022/08/jbl-live-free-2-inside-view.jpg?q=70&fit=contain&w=1200&h=628&dpr=1" alt="Live Free 2">
+          <h5>Live Free 2</h5>
+          <p>6 mics for clear calls, deep bass. Battery: 7hr. IPX5 water/sweatproof.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://i.rtings.com/assets/products/AIv1rSJe/jbl-tune-230nc-tws-true-wireless/design-medium.jpg?format=auto" alt="Tune 230NC">
+          <h5>Tune 230NC</h5>
+          <p>Rich JBL Pure Bass sound, ANC. Battery: 8hr. IPX4 splash proof.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://i.pcmag.com/imagery/reviews/00pKBxapUkDlS3OfUWsjDfQ-3..v1675877053.jpg" alt="Peak 3">
+          <h5>Endurance Peak 3</h5>
+          <p>Sports earbuds with hook fit. Battery: 10hr. IP68 full waterproof & dustproof.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://sm.mashable.com/t/mashable_in/photo/default/jbl-edit04_6kkg.1248.jpg" alt="JBL Tune 125TWS">
+          <h5>Tune 125TWS</h5>
+          <p>Pure Bass, fast pair, long battery. Battery: 8hr. Ergonomic fit for comfort.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Anker -->
+    <div class="card brand-expand hover-expand">
+      <input type="checkbox" id="anker-toggle" hidden>
+      <label for="anker-toggle" class="brand-label">
+        <img src="https://powermaccenter.com/cdn/shop/files/ANKERSOUNDCORELIBERTY4NC.jpg?v=1709781552&width=1920" alt="Anker Soundcore">
+        <h4>Anker Soundcore</h4>
+        <p>Affordable, reliable, and feature-rich wireless earbuds.</p>
+      </label>
+      <div class="brand-items">
+        <div class="sub-card">
+          <img src="https://cdn.mos.cms.futurecdn.net/eVUtL2JH7aPDKRxxN86q6V-1200-80.jpg" alt="Liberty Air 2 Pro">
+          <h5>Liberty Air 2 Pro</h5>
+          <p>Hybrid ANC, customizable sound. Battery: 7hr. Wireless charging case.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/5beb251ab40b9dd2724c2f46/1626274939933-LTD75UKPROJKET0Y0L0X/Soundcore+Life+P3+best+ANC+earbuds+under+100.jpg" alt="Life P3">
+          <h5>Life P3</h5>
+          <p>Multi-mode noise cancelling, gaming mode. Battery: 7hr. IPX5 water resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://swyftaccessories.com/cdn/shop/files/3-1-6.jpg?v=1711494133&width=1920" alt="Liberty 3 Pro">
+          <h5>Liberty 3 Pro</h5>
+          <p>Hi-Res Audio, ACAA 2.0 drivers. Battery: 8hr. LDAC support.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://cdn.mos.cms.futurecdn.net/ahnPhzmvBWJKATPjiWabYm.jpg" alt="Life A2 NC">
+          <h5>Life A2 NC</h5>
+          <p>Hybrid ANC, 6-mic call tech. Battery: 7hr. IPX5 water resistant.</p>
+        </div>
+      </div>
+    </div>
+    <!-- OnePlus -->
+    <div class="card brand-expand hover-expand">
+      <input type="checkbox" id="oneplus-toggle" hidden>
+      <label for="oneplus-toggle" class="brand-label">
+        <img src="https://eezepc.com/wp-content/uploads/2022/10/OnePlus-Nord-Buds-2.jpg" alt="OnePlus Buds">
+        <h4>OnePlus</h4>
+        <p>Fast charging, low latency, and signature sound.</p>
+      </label>
+      <div class="brand-items">
+        <div class="sub-card">
+          <img src="https://i.rtings.com/assets/products/O38yDpYJ/oneplus-buds-pro-2-truly-wireless/design-medium.jpg?format=auto" alt="Buds Pro 2">
+          <h5>Buds Pro 2</h5>
+          <p>Dual drivers, spatial audio. Battery: 9hr. IP55 water/dust resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://www.techadvisor.com/wp-content/uploads/2022/06/oneplus_buds_z2_review_4.jpeg?quality=50&strip=all&w=1024" alt="Buds Z2">
+          <h5>Buds Z2</h5>
+          <p>Active noise cancellation, 3 mics. Battery: 5hr. IP55 water resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://www.notebookcheck.net/fileadmin/_processed_/1/2/csm_20230215_120038_d123ee3ec7.jpg" alt="Buds Pro">
+          <h5>Buds Pro</h5>
+          <p>Smart adaptive noise cancellation. Battery: 7hr. Warp Charge support.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/5f04f767ded4a14e876e6190/1617517487262-R8CNHBA8MG5AKZRKNDYS/OnePlus+Buds+Z+Charging+Case+Open.jpg" alt="Buds Z">
+          <h5>Buds Z</h5>
+          <p>Dynamic 3D stereo sound. Battery: 5hr. IP55 water/sweat resistant.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Realme -->
+    <div class="card brand-expand hover-expand">
+      <input type="checkbox" id="realme-toggle" hidden>
+      <label for="realme-toggle" class="brand-label">
+        <img src="https://gearybd.com/wp-content/uploads/2024/05/Realme-Buds-Air-6-Earbuds-50dB-A-5.png" alt="Realme Buds">
+        <h4>Realme</h4>
+        <p>Trendy design, strong bass, and affordable pricing.</p>
+      </label>
+      <div class="brand-items">
+        <div class="sub-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/5beb251ab40b9dd2724c2f46/d4b33bd8-0274-426c-a17d-4e303c748e91/Realme+Buds+Air+3+Neo+vs+Realme+Buds+Air+2+Neo.jpg" alt="Buds Air 3">
+          <h5>Buds Air 3</h5>
+          <p>Active noise cancellation, 42dB. Battery: 5.5hr. IPX5 water resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://cdn.mos.cms.futurecdn.net/rNDaHR4RpP9rnVKgQEm5Xj.jpg" alt="Buds Q2">
+          <h5>Buds Q2</h5>
+          <p>10mm drivers, low latency. Battery: 5hr. IPX4 water resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://images.squarespace-cdn.com/content/v1/5beb251ab40b9dd2724c2f46/1621687060698-94MGO5DFRFQ9XMWBRU3F/Realme+Buds+Air+2+Neo+review+best+cheapest+ANC+buds.jpg" alt="Buds Air 2 Neo">
+          <h5>Buds Air 2 Neo</h5>
+          <p>ANC, transparency mode. Battery: 5hr. Lightweight design.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://i.gadgets360cdn.com/large/realme_buds_wireless_2_review_main_2_1637663077995.jpg" alt="Buds Wireless 2">
+          <h5>Buds Wireless 2</h5>
+          <p>LDAC Hi-Res Audio, fast charge. Battery: 18hr. Magnetic instant connect.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Sennheiser -->
+    <div class="card brand-expand hover-expand">
+      <input type="checkbox" id="sennheiser-toggle" hidden>
+      <label for="sennheiser-toggle" class="brand-label">
+        <img src="https://digitalexperience.co.za/wp-content/uploads/2022/06/M3WHT-Z.png" alt="Sennheiser Earbuds">
+        <h4>Sennheiser</h4>
+        <p>Legendary sound, premium build, and audiophile quality.</p>
+      </label>
+      <div class="brand-items">
+        <div class="sub-card">
+          <img src="https://www.soundguys.com/wp-content/uploads/2022/04/sennheiser-momentum-true-wireless-3-center-scaled.jpg" alt="Momentum True Wireless 3">
+          <h5>Momentum True Wireless 3</h5>
+          <p>Adaptive noise cancellation, aptX Adaptive. Battery: 7hr. IPX4 splash resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://www.soundguys.com/wp-content/uploads/2022/07/Sennheiser-Sport-True-Wireless-ear-tips-and-wings-scaled-e1663797489641.jpg" alt="CX True Wireless">
+          <h5>CX True Wireless</h5>
+          <p>Customizable touch controls, deep bass. Battery: 9hr. IPX4 splash resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://cdn.mos.cms.futurecdn.net/wxceoaPbaqn7C4svv8y528.jpg" alt="CX Plus True Wireless">
+          <h5>CX Plus True Wireless</h5>
+          <p>Active noise cancellation, clear calls. Battery: 8hr. IPX4 splash resistant.</p>
+        </div>
+        <div class="sub-card">
+          <img src="https://cdn.mos.cms.futurecdn.net/4HdgAddZRnfAmUArvrAS9P.jpg" alt="SPORT True Wireless">
+          <h5>SPORT True Wireless</h5>
+          <p>Secure fit, IP54 dust/water resistant. Battery: 9hr. Bass boost mode.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="featured-products">
+  <h2>Featured Products</h2>
+  <div class="feature-box">
+    <div class="feature-item">
+      <img src="https://i.rtings.com/assets/products/yieSvSzC/sony-wf-c700n-truly-wireless/design-medium.jpg?format=auto" alt="Sony WF-C700N" style="width:100px;">
+      <h4>Sony WF-C700N</h4>
+      <p>Affordable ANC earbuds with deep bass. Battery: 7.5hr. IPX4 sweatproof rating.</p>
+    </div>
+    <div class="feature-item">
+      <img src="https://cdn.mos.cms.futurecdn.net/EDDsqfiFBnPJsjRUFd28WR.jpg" alt="AirPods 3" style="width:100px;">
+      <h4>Apple AirPods 3</h4>
+      <p>Clear sound with adaptive EQ. Battery: 6hr. Water and sweat resistant design.</p>
+    </div>
+    <div class="feature-item">
+      <img src="https://cdn.mos.cms.futurecdn.net/DV28s8cKqDsWaCEEe8oHMX.jpg" alt="Galaxy Buds2 Pro" style="width:100px;">
+      <h4>Galaxy Buds2 Pro</h4>
+      <p>Hi-Res audio, 24-bit sound. Battery: 8hr. IPX7 waterproof for workouts.</p>
+    </div>
+  </div>
+</section>
+
+   <section id="features" class="section">
+    <h2>Why Choose Us?</h2>
+    <div class="feature-box">
+      <div class="feature-item">
+        <h4>100% Original Products</h4>
+        <p>We guarantee authenticity on every item.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Fast Nationwide Delivery</h4>
+        <p>Get your order delivered quickly anywhere in Pakistan.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Expert Support</h4>
+        <p>Our team is always ready to help you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Extended Section -->
+  <section id="faq-extended" class="section">
+    <h2>More Frequently Asked Questions</h2>
+    <div class="faq-accordion">
+      <div class="faq-item">
+        <input type="checkbox" id="faq5">
+        <label for="faq5"><h4>Do you offer gift wrapping?</h4></label>
+        <div class="faq-content">
+          <p>Yes! You can request gift wrapping at checkout for a small additional fee.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <input type="checkbox" id="faq6">
+        <label for="faq6"><h4>Can I get a bulk discount?</h4></label>
+        <div class="faq-content">
+          <p>We offer special pricing for bulk and corporate orders. Contact us for details.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <input type="checkbox" id="faq7">
+        <label for="faq7"><h4>Are there student discounts?</h4></label>
+        <div class="faq-content">
+          <p>Yes, students can enjoy exclusive discounts. Please email us your student ID for a promo code.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <input type="checkbox" id="faq8">
+        <label for="faq8"><h4>How do I claim warranty?</h4></label>
+        <div class="faq-content">
+          <p>Simply contact our support team with your order details and we’ll guide you through the process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Testimonials Section -->
+  <section id="testimonials" class="section">
+    <h2>What Our Customers Say</h2>
+    <div class="feature-box">
+      <div class="feature-item">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="testimonial-img" alt="Customer">
+        <p>"Amazing service and 100% original earbuds. Highly recommended!"</p>
+        <strong>- Ali R.</strong>
+      </div>
+      <div class="feature-item">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testimonial-img" alt="Customer">
+        <p>"Fast delivery and great support. Will shop again!"</p>
+        <strong>- Sana K.</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p><i class="fas fa-envelope"></i> info@arsalbrands.com</p>
+        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+        <div class="contact-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <img src="https://img.freepik.com/free-vector/contact-us-concept-illustration_114360-2299.jpg" class="contact-illustration" alt="Contact">
+      </div>
+      <form class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+        </div>
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-brand">
+        <img src="https://cdn.vectorstock.com/i/500p/07/64/ars-monogram-logo-vector-44760764.avif" class="footer-logo" alt="Logo">
+        <h2>Arsal Brands</h2>
+        <div class="footer-tagline">Your trusted source for original earbuds in Pakistan.</div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fas fa-envelope"></i> info@arsalbrands.com</p>
+        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your Email" required>
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+        <div class="newsletter-text">Subscribe for latest deals and updates.
+         <a href="#brands" class="cta-button" style="background-color: rgb(231, 78, 78); color: white; border-radius: 50px;">Subscribe</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Arsal Brands. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
