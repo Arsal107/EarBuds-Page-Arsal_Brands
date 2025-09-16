@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎉 Happy Birthday Anousha 🎂</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100dvh;
+      /* ✅ Use dynamic height for mobile */
+      overflow: hidden;
+      -webkit-user-select: none;
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    .curtain {
+      position: fixed;
+      top: 0;
+      width: 50%;
+      height: 100dvh;
+      background: #ff4d6d;
+      z-index: 10;
+      transition: transform 1.3s ease-in-out;
+      will-change: transform;
+    }
+
+    .left-curtain {
+      left: 0;
+      border-right: 3px solid white;
+    }
+
+    .right-curtain {
+      right: 0;
+      border-left: 3px solid white;
+    }
+
+    .open.left-curtain {
+      transform: translateX(-100%);
+    }
+
+    .open.right-curtain {
+      transform: translateX(100%);
+    }
+
+    .open-btn {
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      width: fit-content;
+      height: fit-content;
+      padding: 15px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      background: white;
+      border: none;
+      border-radius: 40px;
+      color: #ff4d6d;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      z-index: 11;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+    }
+
+    .open-btn:active {
+      transform: scale(0.95);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    .card {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 1s ease-in-out;
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      overflow-y: auto;
+      max-height: 85dvh;
+      will-change: transform, opacity;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .section {
+      margin: 15px 0;
+      padding: 15px;
+      background: #fff3f3;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(255, 77, 109, 0.2);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1 {
+      font-size: clamp(22px, 6vw, 26px);
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(18px, 5vw, 20px);
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    p {
+      font-size: clamp(15px, 4.5vw, 16px);
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      animation: fall 4s linear forwards;
+      z-index: 5;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100dvh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* ✅ Make tapping outside close card */
+    .overlay-close {
+      position: fixed;
+      inset: 0;
+      background: transparent;
+      z-index: 9;
+      display: none;
+    }
+
+    .overlay-close.show {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="curtain left-curtain"></div>
+  <div class="curtain right-curtain"></div>
+  <div class="overlay-close" id="overlayClose"></div>
+  <button class="open-btn" id="openBtn">🎀 Open Surprise 🎀</button>
+
+  <div class="container">
+    <div class="card" id="bday-card"></div>
+  </div>
+
+  <script>
+    const data = {
+      title: "🎉 Happy 19th Birthday Anousha 🎂",
+      fromTo: {
+        from: "❤️ Mahanoor (Your Loving Cousin)",
+        to: "🌸 To My Dearest Anousha"
+      },
+      sections: [
+        "Dear Anousha, today marks a new chapter full of love, success, and magical surprises. May your journey ahead be brighter than ever! 🌟",
+        "🎂 You are turning 19 today – a beautiful age full of dreams, opportunities, and adventures waiting to be embraced.",
+        "💌 From childhood giggles to endless memories, you have been the heartbeat of our family. Thank you for being YOU!",
+        "🌹 May your laughter be endless, your dreams be fearless, and your happiness be limitless.",
+        "🎁 Here’s to surprises, gifts, cakes, and celebrations that will fill your heart with joy.",
+        "🌙 Remember, you are loved beyond words and cherished beyond measure.",
+        "✨ May the stars always shine upon your path, guiding you to success and love.",
+        "🎶 Dance through life with happiness, sing your heart out, and never stop smiling.",
+        "📖 This year is another page in your story – make it bold, beautiful, and unforgettable.",
+        "🌸 Always remember: You are rare, precious, and one of a kind. Shine bright!"
+      ]
+    };
+
+    const btn = document.getElementById("openBtn");
+    const card = document.getElementById("bday-card");
+    const overlay = document.getElementById("overlayClose");
+
+    function openCard() {
+      document.querySelector('.left-curtain').classList.add('open');
+      document.querySelector('.right-curtain').classList.add('open');
+      btn.style.display = "none";
+
+      setTimeout(() => {
+        document.body.style.overflowY = "auto";
+        buildCard();
+        requestAnimationFrame(() => {
+          card.classList.add('show');
+          overlay.classList.add('show');
+        });
+        launchConfetti();
+      }, 1300);
+    }
+
+    function closeCard() {
+      card.classList.remove('show');
+      overlay.classList.remove('show');
+      document.querySelector('.left-curtain').classList.remove('open');
+      document.querySelector('.right-curtain').classList.remove('open');
+      setTimeout(() => {
+        btn.style.display = "block";
+        card.innerHTML = "";
+        document.body.style.overflow = "hidden";
+      }, 1000);
+    }
+
+    function buildCard() {
+      card.innerHTML = "";
+      const title = document.createElement('h1');
+      title.textContent = data.title;
+      card.appendChild(title);
+
+      const ft = document.createElement('div');
+      ft.className = "section show";
+      ft.innerHTML = `<h2>${data.fromTo.from}</h2><h2>${data.fromTo.to}</h2>`;
+      card.appendChild(ft);
+
+      data.sections.forEach((text, i) => {
+        const sec = document.createElement('div');
+        sec.className = "section";
+        sec.innerHTML = `<p>${text}</p>`;
+        card.appendChild(sec);
+        setTimeout(() => sec.classList.add('show'), 600 * (i + 1));
+      });
+    }
+
+    function launchConfetti() {
+      for (let i = 0; i < 120; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360},80%,60%)`;
+        confetti.style.animationDelay = Math.random() * 2 + "s";
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 4000);
+      }
+    }
+
+    // ✅ Add both click and touch listeners
+    btn.addEventListener("click", openCard);
+    btn.addEventListener("touchstart", (e) => { e.preventDefault(); openCard(); }, { passive: false });
+
+    overlay.addEventListener("click", closeCard);
+  </script>
+</body>
+
+</html>
